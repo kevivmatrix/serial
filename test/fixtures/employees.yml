@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  designation: MyText
+  month_salary: 1
+
+two:
+  name: MyString
+  designation: MyText
+  month_salary: 1
