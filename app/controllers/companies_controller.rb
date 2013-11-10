@@ -3,7 +3,7 @@ class CompaniesController < ApplicationController
     @companies = Company.all
     respond_to do |f|
       f.html
-      f.json { render json: @companies }
+      f.json { render json: @companies, meta: {total: @companies.count} }
     end
   end
 
@@ -11,9 +11,8 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     respond_to do |f|
       f.html
-      f.json { 
-        render json: @company
-      }
+      # f.json { render json: @company, serializer: CustomCompanySerializer }
+      f.json { render json: @company, serializer: Custom2CompanySerializer }
     end
   end
 
