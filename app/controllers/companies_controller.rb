@@ -12,7 +12,19 @@ class CompaniesController < ApplicationController
     respond_to do |f|
       f.html
       f.json { 
-        render json: @company
+        render json: @company.to_json(include: 
+                                        {
+                                          offices: {
+                                            include: 
+                                            {
+                                              employees: {
+                                                only: [:name, :designation]
+                                              }
+                                            },
+                                            only: [:name]
+                                          }
+                                        } 
+                                    )
       }
     end
   end
